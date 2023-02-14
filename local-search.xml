@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>记一次完整的mc开服流程</title>
+    <link href="/2023/02/14/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84mc%E5%BC%80%E6%9C%8D%E6%B5%81%E7%A8%8B/"/>
+    <url>/2023/02/14/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84mc%E5%BC%80%E6%9C%8D%E6%B5%81%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<p>​去年十一月用老朋友的账号白嫖了一年服务器一直没来得及用，现在临时打算用来做我两的建筑服，体量和两个人远程联机一样。</p><p>​这回把流程记录下来，方便以后查阅，我的金鱼脑子实在是记不住。</p><hr><p>1.白嫖一个服务器</p><p>等着每年各云服务器厂商搞活动就行。</p><hr><p>2.给服务器装系统，最好是linux，我选了ubuntu。windows自己就吃内存，只适合小白。</p><p>我嫖了阿里云，直接在网页端远程连接了。或者powershell+ssh。</p><p>然后装环境，主要就java。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update -y<br>sudo apt install -y openjdk-17-jdk<br></code></pre></td></tr></table></figure><p>安装screen</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install screen<br></code></pre></td></tr></table></figure><p>放弃图形化桌面了。</p><p>还有，记得开放端口。</p><hr><p>3.用winscp传文件、整理文件。</p><p>需要root密码。</p><p>主要是传服务端核心（一个jar文件），mod，还有存档。我在本地生成了一个自定义超平坦创造档传上去了。</p><p>关于服务端的选择：bukkit是原版，forge和fabric是模组。要用小木斧和小木棍当然得要模组。我和朋友用的都是npucraft客户端，直接把模组全拖上去了。</p><hr><p>4.第一次运行：</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">java </span>-Xms1024M -Xmx3072M -<span class="hljs-keyword">jar </span>xxxx.<span class="hljs-keyword">jar </span>nogui<br></code></pre></td></tr></table></figure><p>这次嫖到的服务器有4G内存，所以上限我写了3G。</p><p>然后改eula协议，改server.properties，最关键的是改online-mode，其他随意。</p><p>白名单没搞明白，不搞了。</p><hr><p>5.常驻运行</p><p>要用到screen</p><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs axapta">screen -S mc-<span class="hljs-keyword">server</span><br></code></pre></td></tr></table></figure><p>其他关键用法：</p><p>输入组合键：<code>ctrl</code>+<code>a</code>,<code>ctrl</code>+<code>d</code>即可将<code>screen</code>挂到后台<br> 输入命令<code>screen -ls</code>查看窗口一览<br> 输入命令<code>screen -r mc-server</code>可以重新回到服务器窗口中。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>舞基考核第一周任务总结与记录</title>
     <link href="/2022/11/20/%E8%88%9E%E5%9F%BA%E8%80%83%E6%A0%B8%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BB%BB%E5%8A%A1%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%B0%E5%BD%95/"/>
     <url>/2022/11/20/%E8%88%9E%E5%9F%BA%E8%80%83%E6%A0%B8%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BB%BB%E5%8A%A1%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%B0%E5%BD%95/</url>
